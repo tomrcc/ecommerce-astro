@@ -1,20 +1,16 @@
 source: src
-output: dist
 paths:
-  uploads: uploads
+  data: data
+  static: public
+  uploads: public/uploads
 collections_config:
   pages:
-    path: content/pages
+    path: src/content/pages
+    url: "/[slug]/"
     output: true
-    icon: notes
-    _editables: {}
-    _inputs: {}
-    _select_data: {}
-    _structures: {}
-    disable_add: false
-    disable_add_folder: false
-    disable_file_actions: false
-    schemas: {}
+    icon: wysiwyg
+    _enabled_editors:
+      - visual
 _enabled_editors:
   - visual
 _inputs: {}
