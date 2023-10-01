@@ -1,0 +1,16 @@
+spec: 
+  structures:
+    - content_blocks
+  label: Hero
+
+blueprint: 
+  title:
+  button:
+    button_text:
+    button_path:
+  image:
+  image_alt:
+
+preview: 
+
+_inputs: 

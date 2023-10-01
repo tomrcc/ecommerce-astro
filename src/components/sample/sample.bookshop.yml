@@ -1,0 +1,12 @@
+spec: 
+  structures:
+    - content_blocks
+  label: My Component
+
+blueprint: 
+  title: "Hello World!"
+  subtitle: "Goodbye world"
+
+preview: 
+
+_inputs: 
