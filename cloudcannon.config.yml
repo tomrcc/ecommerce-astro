@@ -1,4 +1,5 @@
 source: src
+output: dist
 paths:
   uploads: uploads
 collections_config:
@@ -14,6 +15,8 @@ collections_config:
     disable_add_folder: false
     disable_file_actions: false
     schemas: {}
+_enabled_editors:
+  - visual
 _inputs: {}
 _select_data: {}
 _structures: {}
