@@ -5,7 +5,7 @@ content_blocks:
     title: Sandwich Shop
     button:
       button_text: Shop
-      button_path: '/shop'
-    image: src/assets/sandwich-hero.jpg
+      button_path: /shop
+    image: /assets/sandwich-hero.jpg
     image_alt: A sandwich on a plate. This sandwich is a taco.
 ---
