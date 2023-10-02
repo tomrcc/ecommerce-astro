@@ -1,11 +1,10 @@
-source: src
 paths:
-  data: data
+  data: src/data
   static: public
   uploads: public/images
 collections_config:
   pages:
-    path: content/pages
+    path: src/content/pages
     url: "/[slug]/"
     output: true
     icon: wysiwyg
