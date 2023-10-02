@@ -1,4 +1,4 @@
 ---
 title: Shop
-page_size: 3
+page_size: 6
 ---
