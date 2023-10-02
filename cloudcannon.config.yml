@@ -18,7 +18,7 @@ _enabled_editors:
   - visual
   - content
 _inputs:
-  grid_size:
+  page_size:
     options:
       hidden: '!shop_page'
   content_blocks:

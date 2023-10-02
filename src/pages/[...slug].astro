@@ -1,10 +1,6 @@
 ---
 import PageLayout from '../layouts/page.astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
-import CartFlyoutToggle from '../components/cart-flyout-toggle/cart-flyout-toggle';
-import CartFlyout from '../components/cart-flyout/cart-flyout';
-import ShopItemsGrid from '../components/shop-items/shop-items';
-import shopItemsData from '../data/products.json';
 
 export interface Props {
   page: CollectionEntry<'pages'>;
@@ -24,19 +20,6 @@ const page = Astro.props.page;
 if (!page.data.content_blocks) {
   throw new Error(`Tried to output page: ${page.slug}`);
 }
-
-let shopItems: Array<ShopItem> = [];
-let grid_size: Number = 0;
-let displayCart = false;
-if (page.data.shop_page === true) {
-  shopItems = shopItemsData;
-  displayCart = true;
-  if (!Astro.props.page.data.grid_size) {
-    throw new Error('Need a grid size defined for shop page');
-  }
-  grid_size = Astro.props.page.data.grid_size;
-}
 ---
 
 <PageLayout frontmatter={page.data} />
-<ShopItemsGrid shop_items={shopItems} grid_size={grid_size} client:load />

@@ -1,10 +1,10 @@
-spec: 
+spec:
   structures:
     - content_blocks
   label: Shop Items
 
 blueprint:
-  grid_size: 6
+  page_size: 6
   shop_items:
     - id: 1
       title: Beef Frank Hoagie Sandwich Kit
@@ -67,6 +67,6 @@ blueprint:
         alt: a cheeseburger close-up
       price: 24
 
-preview: 
+preview:
 
-_inputs: 
+_inputs:

@@ -12,9 +12,9 @@ export default function Nav() {
   return (
     <nav className="relative z-10 py-5 px-5 md:px-10 lg:px-20">
       <ul className="flex gap-8">
-        {navItems.map((navItem) => {
+        {navItems.map((navItem, i) => {
           return (
-            <li>
+            <li key={i}>
               <a href={navItem.path}>{navItem.label}</a>
             </li>
           );

@@ -6,12 +6,12 @@ type Props = {
   frontmatter: {
     title: string;
     shop_page: boolean;
-    grid_size: number;
+    page_size: number;
     content_blocks: Array<Record<string, any>>;
   };
 };
 
-if (!Astro.props.frontmatter) {
+if (!Astro.props) {
   throw new Error('Page frontmatter must be defined');
 }
 const props = Astro.props.frontmatter;

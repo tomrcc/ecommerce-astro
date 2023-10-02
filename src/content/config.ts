@@ -5,7 +5,7 @@ export const collections = {
     schema: z.object({
       title: z.string(),
       shop_page: z.boolean(),
-      grid_size: z.number(),
+      page_size: z.number(),
       content_blocks: z.array(z.any()),
     }),
   }),
