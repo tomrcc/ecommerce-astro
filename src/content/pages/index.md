@@ -6,6 +6,6 @@ content_blocks:
     button:
       button_text: Shop
       button_path: /shop
-    image: /assets/sandwich-hero.jpg
+    image: src/assets/sandwich-hero.jpg
     image_alt: A sandwich on a plate. This sandwich is a taco.
 ---
