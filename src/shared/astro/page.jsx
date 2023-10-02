@@ -12,12 +12,15 @@ Object.entries(componentImports).forEach(([path, obj]) => {
 });
 
 export default function Page({ contentBlocks }) {
-  return (
-    <main>
-      {contentBlocks.map((block, i) => {
-        const Component = components[block._bookshop_name];
-        return <Component {...block} key={i} />;
-      })}
-    </main>
-  );
+  if (contentBlocks) {
+    return (
+      <main>
+        {contentBlocks.map((block, i) => {
+          const Component = components[block._bookshop_name];
+          return <Component {...block} key={i} />;
+        })}
+      </main>
+    );
+  }
+  return;
 }
