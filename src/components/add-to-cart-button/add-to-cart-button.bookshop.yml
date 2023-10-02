@@ -1,0 +1,10 @@
+spec:
+  structures:
+    - content_blocks
+  label: Add to Cart Button
+
+blueprint:
+
+preview:
+
+_inputs:

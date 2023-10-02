@@ -1,18 +1,19 @@
 ---
-import PageLayout from "../layouts/page.astro";
-import { getCollection, CollectionEntry } from "astro:content";
+import PageLayout from '../layouts/page.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import CartFlyoutToggle from '../components/cart-flyout-toggle/cart-flyout-toggle';
+import CartFlyout from '../components/cart-flyout/cart-flyout';
+import ShopItemsGrid from '../components/shop-items/shop-items';
+import shopItemsData from '../data/products.json';
 
 export interface Props {
-  page: CollectionEntry<"pages">;
+  page: CollectionEntry<'pages'>;
 }
 
 export async function getStaticPaths() {
-  const pages = await getCollection(
-    "pages",
-    ({ data }) => !data.hidden
-  );
+  const pages = await getCollection('pages', ({ data }) => !data.hidden);
   return pages.map((page) => {
-    const slug = page.slug.replace(/index$/, "");
+    const slug = page.slug.replace(/index$/, '');
     if (slug.length === 0)
       return { params: { slug: undefined }, props: { page } };
     return { params: { slug }, props: { page } };
@@ -25,6 +26,24 @@ if (!page.data.content_blocks) {
     `Tried to output page with unsupported schema: ${page.data._schema}`
   );
 }
+
+let shopItems: {
+  id: number;
+  name: string;
+  description: string;
+  image: { src: string; alt: string };
+  price: number;
+}[] = [];
+
+let grid_size = 0;
+
+if (page.slug === 'shop') {
+  shopItems = shopItemsData;
+  grid_size = Astro.props.page.data.grid_size;
+}
 ---
 
+<CartFlyoutToggle client:load />
+<CartFlyout client:load />
 <PageLayout frontmatter={page.data} />
+<ShopItemsGrid shop_items={shopItems} grid_size={grid_size} client:load />

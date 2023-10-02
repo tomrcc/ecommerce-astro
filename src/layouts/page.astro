@@ -1,20 +1,21 @@
 ---
-import PageHelper from "../shared/astro/page.jsx";
-import Layout from "./layout.astro";
+import PageHelper from '../shared/astro/page.jsx';
+import Layout from './layout.astro';
 
 type Props = {
-	frontmatter: {
-		title: string;
-		content_blocks: Array<Record<string, any>>;
-	};
+  frontmatter: {
+    title: string;
+    grid_size: number;
+    content_blocks: Array<Record<string, any>>;
+  };
 };
 
 if (!Astro.props.frontmatter) {
-	throw new Error("Page frontmatter must be defined");
+  throw new Error('Page frontmatter must be defined');
 }
 const props = Astro.props.frontmatter;
 ---
 
 <Layout {...props}>
-	<PageHelper bookshop:live contentBlocks={props.content_blocks} />
+  <PageHelper bookshop:live contentBlocks={props.content_blocks} />
 </Layout>

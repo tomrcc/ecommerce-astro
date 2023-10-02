@@ -1,0 +1,10 @@
+spec:
+  structures:
+    - content_blocks
+  label: Cart Flyout Toggle
+
+blueprint:
+
+preview:
+
+_inputs:

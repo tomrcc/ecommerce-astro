@@ -1,17 +1,17 @@
 const components = {};
-const componentImports = import.meta.glob("../../components/**/*.jsx", {
+const componentImports = import.meta.glob('../../components/**/*.jsx', {
   eager: true,
 });
 Object.entries(componentImports).forEach(([path, obj]) => {
-  const parts = path.replace("../../components/", "").split(".")[0].split("/");
+  const parts = path.replace('../../components/', '').split('.')[0].split('/');
   if (parts.length > 1 && parts[parts.length - 1] === parts[parts.length - 2]) {
     parts.pop();
   }
-  const bookshopName = parts.join("/");
+  const bookshopName = parts.join('/');
   components[bookshopName] = obj.default;
 });
 
-export default function Page({ contentBlocks }) {
+export default function Page({ contentBlocks, shopBlocks }) {
   return (
     <main>
       {contentBlocks.map((block, i) => {

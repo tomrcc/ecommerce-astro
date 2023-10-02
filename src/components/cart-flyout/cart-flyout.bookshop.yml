@@ -1,10 +1,10 @@
-spec: 
+spec:
   structures:
     - content_blocks
-  label: Add to Cart
+  label: Cart Flyout
 
 blueprint:
 
-preview: 
+preview:
 
-_inputs: 
+_inputs:
