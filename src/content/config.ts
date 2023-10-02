@@ -4,9 +4,8 @@ export const collections = {
   pages: defineCollection({
     schema: z.object({
       title: z.string(),
-      shop_page: z.boolean(),
-      page_size: z.number(),
-      content_blocks: z.array(z.any()),
+      page_size: z.number().optional(),
+      content_blocks: z.array(z.any()).optional(),
     }),
   }),
   shop: defineCollection({

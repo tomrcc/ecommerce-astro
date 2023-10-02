@@ -3,9 +3,8 @@ import Nav from '../components/nav/nav';
 
 interface Props {
   title: string;
-  shop_page: boolean;
-  page_size: number;
-  content_blocks: Array<Record<string, any>>;
+  page_size?: number;
+  content_blocks?: Array<Record<string, any>>;
 }
 
 const { title } = Astro.props;

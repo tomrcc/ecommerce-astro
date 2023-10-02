@@ -1,26 +1,26 @@
 ---
 import ShopItems from '../../components/shop-items/shop-items';
-import ShopPagination from '../../components/pagination/pagination';
 import CartFlyoutToggle from '../../components/cart-flyout-toggle/cart-flyout-toggle';
 import CartFlyout from '../../components/cart-flyout/cart-flyout';
 import Layout from '../../layouts/layout.astro';
-import { getCollection, getEntryBySlug } from 'astro:content';
+import { getEntryBySlug } from 'astro:content';
+import products from '../../data/products.json';
 
-export async function getStaticPaths({ paginate }: { paginate: Function }) {
-  const products = await getCollection('shop');
+export async function getStaticPaths() {
   const page = await getEntryBySlug('pages', 'shop');
-  return paginate(products, { pageSize: page.data.page_size });
+  return [{ params: page.data }];
 }
 
 const page = await getEntryBySlug('pages', 'shop');
 const frontmatter = page.data;
-const pagination = Astro.props.page;
-const { data: products } = pagination;
 ---
 
 <Layout {...frontmatter}>
   <CartFlyoutToggle client:load />
   <CartFlyout client:load />
-  <ShopItems shop_items={products} client:load />
-  <ShopPagination pagination={pagination} />
+  <ShopItems
+    shop_items={products}
+    page_size={frontmatter.page_size}
+    client:load
+  />
 </Layout>

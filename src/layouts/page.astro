@@ -5,9 +5,8 @@ import Layout from './layout.astro';
 type Props = {
   frontmatter: {
     title: string;
-    shop_page: boolean;
-    page_size: number;
-    content_blocks: Array<Record<string, any>>;
+    page_size?: number;
+    content_blocks?: Array<Record<string, any>>;
   };
 };
 
