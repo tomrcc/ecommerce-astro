@@ -2,7 +2,7 @@ source: src
 paths:
   data: data
   static: public
-  uploads: public/uploads
+  uploads: public/images
 collections_config:
   pages:
     path: content/pages
