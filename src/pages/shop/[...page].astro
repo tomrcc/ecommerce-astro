@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/page.astro';
+import CartFlyoutToggle from '../../components/cart-flyout-toggle/cart-flyout-toggle';
+import CartFlyout from '../../components/cart-flyout/cart-flyout';
+import ShopItemsGrid from '../../components/shop-items/shop-items';
+import { getEntryBySlug, getCollection } from 'astro:content';
+
+export async function getStaticPaths({ paginate }: { paginate: Function }) {
+  const products = await getCollection('shop');
+  const page = await getEntryBySlug('pages', 'shop');
+  return paginate(products, { pageSize: page.data.grid_size });
+}
+
+const page = await getEntryBySlug('pages', 'shop');
+const pagination = Astro.props.page;
+const { data: products } = pagination;
+console.log(products);
+---
+
+<Layout frontmatter={page.data}>
+  <CartFlyoutToggle client:load />
+  <CartFlyout client:load />
+  <!-- <ShopItemsGrid
+    shop_items={products}
+    grid_size={page.data.grid_size}
+    client:load
+  /> -->
+</Layout>

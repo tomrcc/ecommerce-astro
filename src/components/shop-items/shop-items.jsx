@@ -9,11 +9,11 @@ export default function ShopItems({ shop_items, grid_size }) {
             <div className="py-5" key={i}>
               <img
                 className="rounded-md"
-                src={shopItem.image.src}
-                alt={shopItem.image.alt}
+                src={shopItem.data.image.src}
+                alt={shopItem.data.image.alt}
               />
-              <h1 className="py-2">{shopItem.name}</h1>
-              <AddToCartButton item={shopItem} client:load>
+              <h1 className="py-2">{shopItem.data.name}</h1>
+              <AddToCartButton item={shopItem.data} client:load>
                 <button>Add to cart</button>
               </AddToCartButton>
             </div>
