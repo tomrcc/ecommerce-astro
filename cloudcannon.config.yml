@@ -5,11 +5,15 @@ paths:
 collections_config:
   pages:
     path: src/content/pages
-    url: "/[slug]/"
+    url: '/[slug]/'
     output: true
     icon: wysiwyg
     _enabled_editors:
       - visual
+  data:
+    path: src/data
+    disable_add: true
+    disable_add_folder: true
 _enabled_editors:
   - visual
   - content
