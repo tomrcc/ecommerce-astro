@@ -1,5 +1,6 @@
 ---
 title: Home
+shop_page: false
 grid_size: 0
 content_blocks:
   - _bookshop_name: hero

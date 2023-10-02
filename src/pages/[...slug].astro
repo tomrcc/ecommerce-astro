@@ -11,7 +11,7 @@ export interface Props {
 }
 
 export async function getStaticPaths() {
-  const pages = await getCollection('pages', ({ data }) => !data.hidden);
+  const pages = await getCollection('pages');
   return pages.map((page) => {
     const slug = page.slug.replace(/index$/, '');
     if (slug.length === 0)
@@ -22,28 +22,23 @@ export async function getStaticPaths() {
 
 const page = Astro.props.page;
 if (!page.data.content_blocks) {
-  throw new Error(
-    `Tried to output page with unsupported schema: ${page.data._schema}`
-  );
+  throw new Error(`Tried to output page: ${page.slug}`);
 }
 
-let shopItems: {
-  id: number;
-  name: string;
-  description: string;
-  image: { src: string; alt: string };
-  price: number;
-}[] = [];
-
-let grid_size = 0;
-
-if (page.slug === 'shop') {
+let shopItems: Array<ShopItem> = [];
+let grid_size: Number = 0;
+let displayCart = false;
+if (page.data.shop_page === true) {
   shopItems = shopItemsData;
+  displayCart = true;
+  if (!Astro.props.page.data.grid_size) {
+    throw new Error('Need a grid size defined for shop page');
+  }
   grid_size = Astro.props.page.data.grid_size;
 }
 ---
 
-<CartFlyoutToggle client:load />
-<CartFlyout client:load />
+<CartFlyoutToggle client:load displayCart={displayCart} />
+<CartFlyout client:load displayCart={displayCart} />
 <PageLayout frontmatter={page.data} />
 <ShopItemsGrid shop_items={shopItems} grid_size={grid_size} client:load />

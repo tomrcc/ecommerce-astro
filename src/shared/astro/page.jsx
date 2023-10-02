@@ -11,7 +11,7 @@ Object.entries(componentImports).forEach(([path, obj]) => {
   components[bookshopName] = obj.default;
 });
 
-export default function Page({ contentBlocks, shopBlocks }) {
+export default function Page({ contentBlocks }) {
   return (
     <main>
       {contentBlocks.map((block, i) => {
