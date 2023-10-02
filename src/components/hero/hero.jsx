@@ -15,7 +15,7 @@ export default ({ title, button, image, image_alt }) => {
       <img
         src={image}
         alt={image_alt}
-        className="absolute bottom-0 left-0 scale-x-[-1]"
+        className="absolute inset-0 scale-x-[-1]"
       />
     </div>
   );
