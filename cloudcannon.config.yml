@@ -1,8 +1,8 @@
 source: src
 paths:
   data: data
-  static: assets
-  uploads: assets
+  static: public
+  uploads: public/uploads
 collections_config:
   pages:
     path: content/pages

@@ -6,7 +6,7 @@ content_blocks:
     button:
       button_text: Shop
       button_path: /shop
-    image: /sandwich-hero.jpg
+    image: /images/sandwich-hero.jpg
     image_alt: A sandwich on a plate. This sandwich is a taco.
   - _bookshop_name: shop-items
     grid_size: 6
