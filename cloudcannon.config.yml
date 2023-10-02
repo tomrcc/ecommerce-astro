@@ -23,7 +23,7 @@ _inputs:
       hidden: shop_page
   content_blocks:
     options:
-      hidden: !shop_page
+      hidden: '!shop_page'
 _select_data: {}
 _structures: {}
 _editables: {}
