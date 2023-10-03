@@ -13,9 +13,9 @@ export default function ShopItems({ shop_items, page_size }) {
                 alt={shopItem.image.alt}
               />
               <h1 className="py-2">{shopItem.name}</h1>
-              <AddToCartButton item={shopItem} client:load>
-                <button>Add to cart</button>
-              </AddToCartButton>
+              <launch-cart-additem price-id="price_1Nww7HJS2vAZDHNripQNJjh6">
+                <button>Add to cart!</button>
+              </launch-cart-additem>
             </div>
           );
         })}

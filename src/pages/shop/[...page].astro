@@ -16,8 +16,9 @@ const frontmatter = page.data;
 ---
 
 <Layout {...frontmatter}>
-  <CartFlyoutToggle client:load />
-  <CartFlyout client:load />
+  <launch-cart
+    url="wss://elements.launchscout.com/socket"
+    store-id="3a7d9ef7-a08e-462f-91e1-f82ef50fa308"></launch-cart>
   <ShopItems
     shop_items={products}
     page_size={frontmatter.page_size}
